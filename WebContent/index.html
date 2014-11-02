@@ -1,0 +1,56 @@
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+
+			<script src="../../../openui5-runtime/resources/sap-ui-core.js" type="text/javascript"
+					id="sap-ui-bootstrap"
+					data-sap-ui-libs="sap.m,sap.ui.commons,sap.ui.table"
+					data-sap-ui-theme="sap_bluecrystal">
+			</script>
+			
+			<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+
+			<script src="../../../openui5-runtime/resources/sap/ui/thirdparty/d3-dbg.js" type="text/javascript"> </script>
+
+			<script src="lib/nyt-tags.js" type="text/javascript"> </script>
+
+
+			<script>
+			
+
+			sap.ui.localResources("nyt-tags");
+	       	       
+	        sap.ui.getCore().setModel(
+	        	sap.ui.model.resource.ResourceModel({
+	            	bundleUrl : "i18n/messageBundle.properties"
+	        	}),
+	        	"i18n");
+
+	        //var mainModel = new sap.ui.model.json.JSONModel("model/model.json");
+	        var mainModel = new sap.ui.model.json.JSONModel();
+
+
+			var app = new sap.m.App({
+				initialPage:"idmain1",
+				height: "100%",
+				width: "100%",
+			});
+
+			var view = sap.ui.view({id:"idmain1", viewName:"nyt-tags.main", type:sap.ui.core.mvc.ViewType.JS});
+			sap.ui.getCore().setModel(mainModel);
+
+			app.addPage(view);
+			// app.placeAt("content"); // it won't be focused on mobile
+			view.placeAt("content"); 
+			
+
+			</script>
+			
+
+		</head>
+		<body class="sapUiBody" role="application">
+			<div id="content"></div>
+		</body>
+	</html>
